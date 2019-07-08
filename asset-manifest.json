@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/iamlisp-web/static/css/main.2cce8147.chunk.css",
-    "main.js": "/iamlisp-web/static/js/main.9c1da5f5.chunk.js",
-    "main.js.map": "/iamlisp-web/static/js/main.9c1da5f5.chunk.js.map",
+    "main.css": "/iamlisp-web/static/css/main.42c724ba.chunk.css",
+    "main.js": "/iamlisp-web/static/js/main.05fb0f24.chunk.js",
+    "main.js.map": "/iamlisp-web/static/js/main.05fb0f24.chunk.js.map",
     "runtime~main.js": "/iamlisp-web/static/js/runtime~main.f16edc94.js",
     "runtime~main.js.map": "/iamlisp-web/static/js/runtime~main.f16edc94.js.map",
-    "static/js/2.b41502e9.chunk.js": "/iamlisp-web/static/js/2.b41502e9.chunk.js",
-    "static/js/2.b41502e9.chunk.js.map": "/iamlisp-web/static/js/2.b41502e9.chunk.js.map",
+    "static/css/2.fd1bd5f1.chunk.css": "/iamlisp-web/static/css/2.fd1bd5f1.chunk.css",
+    "static/js/2.721202be.chunk.js": "/iamlisp-web/static/js/2.721202be.chunk.js",
+    "static/js/2.721202be.chunk.js.map": "/iamlisp-web/static/js/2.721202be.chunk.js.map",
     "index.html": "/iamlisp-web/index.html",
-    "precache-manifest.6ca1d8626bf575c86998281b1f274c99.js": "/iamlisp-web/precache-manifest.6ca1d8626bf575c86998281b1f274c99.js",
+    "precache-manifest.7a1e9f4e76a6ef8beb677f485bb04b34.js": "/iamlisp-web/precache-manifest.7a1e9f4e76a6ef8beb677f485bb04b34.js",
     "service-worker.js": "/iamlisp-web/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/iamlisp-web/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/iamlisp-web/static/media/logo.5d5d9eef.svg"
+    "static/css/2.fd1bd5f1.chunk.css.map": "/iamlisp-web/static/css/2.fd1bd5f1.chunk.css.map",
+    "static/css/main.42c724ba.chunk.css.map": "/iamlisp-web/static/css/main.42c724ba.chunk.css.map"
   }
 }
