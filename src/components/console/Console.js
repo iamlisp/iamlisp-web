@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, createRef } from "react";
 import styled from "styled-components";
 import Log from "./Log";
 import Prompt from "./Prompt";
@@ -15,6 +15,8 @@ export const ConsoleWrapper = styled.section`
 `;
 
 const Console = ({ onEval, messageEmitter }) => {
+  const endRef = createRef();
+
   const [input, setInput] = useState("");
   const [logEntries, setLogEntries] = useState([]);
 
@@ -49,10 +51,15 @@ const Console = ({ onEval, messageEmitter }) => {
     }
   }, [messageEmitter]);
 
+  useEffect(() => {
+    endRef.current.scrollIntoView();
+  }, [endRef]);
+
   return (
     <ConsoleWrapper>
       <Log logEntries={logEntries} />
       <Prompt value={input} onChange={setInput} onSubmit={handleSubmit} />
+      <div ref={endRef} />
     </ConsoleWrapper>
   );
 };
