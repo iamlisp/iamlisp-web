@@ -5,4 +5,5 @@
 .CodeMirror,
 .ReactCodeMirror {
   height: 100%;
+  font-family: "Monaco", monospace;
 }

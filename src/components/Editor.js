@@ -4,8 +4,7 @@ import styled from "styled-components";
 
 require("codemirror/mode/commonlisp/commonlisp");
 
-const EditorWrapper = styled.section`
-  width: 100%;
+export const EditorWrapper = styled.section`
   font-family: "Monaco", monospace;
   display: flex;
   flex-direction: column;
@@ -20,12 +19,7 @@ const Editor = props => {
   const [code, setCode] = useState();
   return (
     <EditorWrapper>
-      <CodeMirror
-        value={code}
-        onChange={setCode}
-        options={options}
-        style={{ height: "100%" }}
-      />
+      <CodeMirror value={code} onChange={setCode} options={options} />
     </EditorWrapper>
   );
 };
