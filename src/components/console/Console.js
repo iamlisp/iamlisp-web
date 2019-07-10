@@ -4,6 +4,7 @@ import Log from "./Log";
 import Prompt from "./Prompt";
 import useLogEntries from "./hooks/useLogEntries";
 import useMessageHandler from "./hooks/useMessageHandler";
+import ConnectingMessage from "./ConnectingMessage";
 
 export const ConsoleWrapper = styled.section`
   padding: 4px;
@@ -16,7 +17,7 @@ export const ConsoleWrapper = styled.section`
   white-space: pre;
 `;
 
-const Console = ({ onEval, messageEmitter }) => {
+const Console = ({ connectionStatus, onEval, messageEmitter }) => {
   const endRef = createRef();
 
   const [input, setInput] = useState("");
@@ -25,16 +26,19 @@ const Console = ({ onEval, messageEmitter }) => {
   useMessageHandler(messageEmitter, logEntries);
 
   const handleSubmit = useCallback(() => {
-    logEntries.addInput(input);
-    setInput("");
-    onEval(input);
-  }, [input, onEval, logEntries]);
+    if (connectionStatus === "open") {
+      logEntries.addInput(input);
+      setInput("");
+      onEval(input);
+    }
+  }, [input, onEval, logEntries, connectionStatus]);
 
   useEffect(() => endRef.current.scrollIntoView(), [endRef]);
 
   return (
     <ConsoleWrapper>
       <Log logEntries={logEntries.entries} />
+      {connectionStatus !== "open" && <ConnectingMessage />}
       <Prompt value={input} onChange={setInput} onSubmit={handleSubmit} />
       <div ref={endRef} />
     </ConsoleWrapper>

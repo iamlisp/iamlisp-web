@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import { EventEmitter } from "events";
+import ReconnectingWebSocket from "reconnecting-websocket";
 
 export default function useWebSocket(webSocketUrl) {
   const [status, setStatus] = useState("closed");
@@ -8,7 +9,7 @@ export default function useWebSocket(webSocketUrl) {
   const messageEmitterRef = useRef();
 
   useEffect(() => {
-    const socket = new WebSocket(webSocketUrl);
+    const socket = new ReconnectingWebSocket(webSocketUrl);
     const emitter = new EventEmitter();
 
     socket.onmessage = message => emitter.emit("message", message);

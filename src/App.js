@@ -28,9 +28,11 @@ function App() {
   return (
     <Layout>
       <Editor onEval={sendMessage} />
-      {status === "open" && (
-        <Console onEval={sendMessage} messageEmitter={messageEmitter} />
-      )}
+      <Console
+        connectionStatus={status}
+        onEval={sendMessage}
+        messageEmitter={messageEmitter}
+      />
     </Layout>
   );
 }

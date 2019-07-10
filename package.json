@@ -10,6 +10,7 @@
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "reconnecting-websocket": "^4.1.10",
     "styled-components": "^4.3.2"
   },
   "homepage": "https://pldin601.github.io/iamlisp-web/",
