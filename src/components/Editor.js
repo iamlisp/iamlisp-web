@@ -4,6 +4,7 @@ import styled from "styled-components";
 import PanelWrapper from "./editor/Panel";
 
 require("codemirror/mode/commonlisp/commonlisp");
+require("codemirror/addon/edit/matchbrackets");
 
 export const EditorWrapper = styled.section`
   font-family: "Monaco", monospace;
@@ -16,7 +17,8 @@ const options = {
   theme: "material",
   lineNumbers: true,
   tabSize: 2,
-  indentWithTabs: false
+  indentWithTabs: true,
+  matchBrackets: true
 };
 
 const Editor = ({ onEval }) => {
