@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/iamlisp-web/static/css/main.4ebf4eae.chunk.css",
-    "main.js": "/iamlisp-web/static/js/main.c5df0575.chunk.js",
-    "main.js.map": "/iamlisp-web/static/js/main.c5df0575.chunk.js.map",
+    "main.js": "/iamlisp-web/static/js/main.d3b46416.chunk.js",
+    "main.js.map": "/iamlisp-web/static/js/main.d3b46416.chunk.js.map",
     "runtime~main.js": "/iamlisp-web/static/js/runtime~main.f16edc94.js",
     "runtime~main.js.map": "/iamlisp-web/static/js/runtime~main.f16edc94.js.map",
     "static/css/2.fd1bd5f1.chunk.css": "/iamlisp-web/static/css/2.fd1bd5f1.chunk.css",
     "static/js/2.a47161a6.chunk.js": "/iamlisp-web/static/js/2.a47161a6.chunk.js",
     "static/js/2.a47161a6.chunk.js.map": "/iamlisp-web/static/js/2.a47161a6.chunk.js.map",
     "index.html": "/iamlisp-web/index.html",
-    "precache-manifest.de337bd57ec0bea86358c974e0ee9656.js": "/iamlisp-web/precache-manifest.de337bd57ec0bea86358c974e0ee9656.js",
+    "precache-manifest.93d78ba5ef2ad370a9ce342b81b3bb97.js": "/iamlisp-web/precache-manifest.93d78ba5ef2ad370a9ce342b81b3bb97.js",
     "service-worker.js": "/iamlisp-web/service-worker.js",
     "static/css/2.fd1bd5f1.chunk.css.map": "/iamlisp-web/static/css/2.fd1bd5f1.chunk.css.map",
     "static/css/main.4ebf4eae.chunk.css.map": "/iamlisp-web/static/css/main.4ebf4eae.chunk.css.map"
