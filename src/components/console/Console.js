@@ -2,6 +2,8 @@ import React, { useState, useCallback, useEffect, createRef } from "react";
 import styled from "styled-components";
 import Log from "./Log";
 import Prompt from "./Prompt";
+import useLogEntries from "./hooks/useLogEntries";
+import useMessageHandler from "./hooks/useMessageHandler";
 
 export const ConsoleWrapper = styled.section`
   padding: 4px;
@@ -18,46 +20,21 @@ const Console = ({ onEval, messageEmitter }) => {
   const endRef = createRef();
 
   const [input, setInput] = useState("");
-  const [logEntries, setLogEntries] = useState([]);
+  const logEntries = useLogEntries([]);
+
+  useMessageHandler(messageEmitter, logEntries);
 
   const handleSubmit = useCallback(() => {
-    const newInputLogEntry = { content: input, type: "input" };
-    setLogEntries(entries => [...entries, newInputLogEntry]);
+    logEntries.addInput(input);
     setInput("");
     onEval(input);
-  }, [input, onEval]);
+  }, [input, onEval, logEntries]);
 
-  useEffect(() => {
-    const handleMessage = ({ data }) => {
-      const parsedData = JSON.parse(data);
-      if ("error" in parsedData) {
-        const newErrorLogEntry = { content: parsedData.error, type: "error" };
-        setLogEntries(entries => [...entries, newErrorLogEntry]);
-      }
-      if ("result" in parsedData) {
-        const newOutputLogEntry = {
-          content: parsedData.result,
-          type: "output"
-        };
-        setLogEntries(entries => [...entries, newOutputLogEntry]);
-      }
-    };
-
-    if (messageEmitter) {
-      messageEmitter.on("message", handleMessage);
-      return () => {
-        messageEmitter.off("message", handleMessage);
-      };
-    }
-  }, [messageEmitter]);
-
-  useEffect(() => {
-    endRef.current.scrollIntoView();
-  }, [endRef]);
+  useEffect(() => endRef.current.scrollIntoView(), [endRef]);
 
   return (
     <ConsoleWrapper>
-      <Log logEntries={logEntries} />
+      <Log logEntries={logEntries.entries} />
       <Prompt value={input} onChange={setInput} onSubmit={handleSubmit} />
       <div ref={endRef} />
     </ConsoleWrapper>

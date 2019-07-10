@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Layout>
-      <Editor />
+      <Editor onEval={sendMessage} />
       {status === "open" && (
         <Console onEval={sendMessage} messageEmitter={messageEmitter} />
       )}

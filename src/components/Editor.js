@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import CodeMirror from "react-codemirror";
 import styled from "styled-components";
+import PanelWrapper from "./editor/Panel";
 
 require("codemirror/mode/commonlisp/commonlisp");
 
@@ -15,11 +16,16 @@ const options = {
   theme: "material"
 };
 
-const Editor = props => {
+const Editor = ({ onEval }) => {
   const [code, setCode] = useState();
+
+  const handleEvalClick = useCallback(() => onEval(code), [code, onEval]);
+  const handleChange = useCallback((code, event) => setCode(code), []);
+
   return (
     <EditorWrapper>
-      <CodeMirror value={code} onChange={setCode} options={options} />
+      <CodeMirror value={code} onChange={handleChange} options={options} />
+      <PanelWrapper onEvalClick={handleEvalClick} />
     </EditorWrapper>
   );
 };

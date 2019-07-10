@@ -6,4 +6,6 @@
 .ReactCodeMirror {
   height: 100%;
   font-family: "Monaco", monospace;
+  position: relative;
+  overflow-y: auto;
 }
