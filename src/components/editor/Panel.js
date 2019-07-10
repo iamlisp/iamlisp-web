@@ -12,7 +12,7 @@ const Panel = styled.div`
 const PanelWrapper = ({ onEvalClick }) => {
   return (
     <Panel>
-      <FlatButton onClick={onEvalClick}>Evaluate</FlatButton>
+      <FlatButton onClick={onEvalClick}>Run</FlatButton>
     </Panel>
   );
 };
