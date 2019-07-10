@@ -9,6 +9,8 @@ export default function useMessageHandler(messageEmitter, logEntries) {
         logEntries.addError(parsedData.error);
       } else if ("result" in parsedData) {
         logEntries.addOutput(parsedData.result);
+      } else if ("print" in parsedData) {
+        logEntries.addOutput(parsedData.print);
       } else {
         logEntries.addOutput("OK");
       }
