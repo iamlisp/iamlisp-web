@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4f41497cc1ac9c434afa4f5b02b446b2",
+    "revision": "eb1ef00eb45c4c2007aa8c32b0fb30b4",
     "url": "/iamlisp-web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/iamlisp-web/static/css/2.fd1bd5f1.chunk.css"
   },
   {
-    "revision": "b843fdc204f732159c3f",
+    "revision": "bb751728d9e1ed2e50b9",
     "url": "/iamlisp-web/static/css/main.4ebf4eae.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/iamlisp-web/static/js/2.e3ac123b.chunk.js"
   },
   {
-    "revision": "b843fdc204f732159c3f",
-    "url": "/iamlisp-web/static/js/main.4d072f0e.chunk.js"
+    "revision": "bb751728d9e1ed2e50b9",
+    "url": "/iamlisp-web/static/js/main.9c7d377e.chunk.js"
   },
   {
     "revision": "4834ad6160723c288421",
