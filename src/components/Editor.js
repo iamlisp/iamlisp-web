@@ -14,7 +14,9 @@ export const EditorWrapper = styled.section`
 const options = {
   mode: "commonlisp",
   theme: "material",
-  lineNumbers: true
+  lineNumbers: true,
+  tabSize: 2,
+  indentWithTabs: false
 };
 
 const Editor = ({ onEval }) => {
