@@ -13,7 +13,8 @@ export const EditorWrapper = styled.section`
 
 const options = {
   mode: "commonlisp",
-  theme: "material"
+  theme: "material",
+  lineNumbers: true
 };
 
 const Editor = ({ onEval }) => {
