@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/iamlisp-web/precache-manifest.7b26951e7433ff42dc675bf83c3e5d15.js"
+  "/iamlisp-web/precache-manifest.4ce06124b59c9b0c97119b0971378748.js"
 );
 
 self.addEventListener('message', (event) => {
