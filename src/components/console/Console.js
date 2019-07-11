@@ -39,7 +39,12 @@ const Console = ({ connectionStatus, onEval, messageEmitter }) => {
     <ConsoleWrapper>
       <Log logEntries={logEntries.entries} />
       {connectionStatus !== "open" && <ConnectingMessage />}
-      <Prompt value={input} onChange={setInput} onSubmit={handleSubmit} />
+      <Prompt
+        logEntries={logEntries.entries}
+        value={input}
+        onChange={setInput}
+        onSubmit={handleSubmit}
+      />
       <div ref={endRef} />
     </ConsoleWrapper>
   );

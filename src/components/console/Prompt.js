@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import InputPrefix from "./InputPrefix";
+import useUniqueInputEntries from "./hooks/useUniqueInputEntries";
 
 const PromptWrapper = styled.div`
   .cursor {
@@ -16,11 +17,14 @@ function sanitizeCharUnderCursor(char) {
   return char.replace("\n", " \n");
 }
 
-const Prompt = ({ value, onChange, onSubmit }) => {
+const Prompt = ({ value, onChange, onSubmit, logEntries }) => {
+  const [historyPosition, setHistoryPosition] = useState(null);
   const [cursorPosition, setCursorPosition] = useState(0);
   const inputBeforeCursor = value.slice(0, cursorPosition);
   const inputAtCursor = value[cursorPosition];
   const inputAfterCursor = value.slice(cursorPosition + 1);
+
+  const inputEntries = useUniqueInputEntries(logEntries);
 
   const putAtCursor = useCallback(
     content => {
@@ -45,6 +49,28 @@ const Prompt = ({ value, onChange, onSubmit }) => {
           return setCursorPosition(currentPosition =>
             Math.min(value.length, currentPosition + 1)
           );
+
+        case "ArrowUp": {
+          const newHistoryPosition =
+            historyPosition === null
+              ? inputEntries.length - 1
+              : Math.max(historyPosition - 1, 0);
+          setHistoryPosition(newHistoryPosition);
+          onChange(inputEntries[newHistoryPosition].content);
+          break;
+        }
+
+        case "ArrowDown": {
+          if (historyPosition !== null) {
+            const newHistoryPosition = Math.min(
+              historyPosition + 1,
+              inputEntries.length - 1
+            );
+            setHistoryPosition(newHistoryPosition);
+            onChange(inputEntries[newHistoryPosition].content);
+          }
+          break;
+        }
 
         case "End":
           return setCursorPosition(value.length);
@@ -76,7 +102,7 @@ const Prompt = ({ value, onChange, onSubmit }) => {
         default:
       }
     },
-    [cursorPosition, value, onChange]
+    [cursorPosition, historyPosition, inputEntries, value, onChange]
   );
 
   const handleKeyPress = useCallback(
@@ -85,7 +111,12 @@ const Prompt = ({ value, onChange, onSubmit }) => {
 
       switch (event.key) {
         case "Enter":
-          return event.shiftKey ? putAtCursor("\n") : onSubmit(value);
+          if (event.shiftKey) {
+            return putAtCursor("\n");
+          } else {
+            setHistoryPosition(null);
+            return onSubmit(value);
+          }
 
         default:
           return putAtCursor(event.key);
